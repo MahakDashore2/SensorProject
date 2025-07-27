@@ -12,5 +12,27 @@
 12. now in cmd of vs code in terminal type "conda create -p venv python==3.8"
 13. type y, press enter
 14. activate the venv, type "conda activate venv/"
-15. make setup.py file in "SensorFault"
-16. 
+15. make setup.py file in "SensorFault" and write the code 
+16. make requirements.txt
+17. write pandas, numpy, -e. into it
+18. either execute "python setup.py install" or "pip install -r requirements.txt"
+note :- all the commands are being executed in the terminal in cmd
+19. make folder "arc" in project
+20. make "__init__.py" in src
+21. make a new repo in git "SensorProject"
+22. type in terminal "git init"
+23. make ".gitignore" file
+24. write /venv in gitignore
+25. write down git commands one by one from the repo 
+26. after adding all existing files on github go to add file-> create new file->name the file as ".gitignore"-> choose a template "python" and press enter 
+27. copy the below code and paste it to gitignore in the project file
+28. again commit and push it 
+
+29. make components and  pipeline python package in src
+30. make data_ingestion.py, data_transformation.py, model_trainer.py in the components package
+31. make predict_pipeline.py and train_pipeline.py in pipeline folder
+make artifacts folder and notebooks folderin project
+
+
+32. make 
+34. 
