@@ -1,32 +1,131 @@
 <!DOCTYPE html>
-<html lang="en"> scroll
+<html lang="en">
 <head>
-<meta charset="UTF-8"> == $0
-<title>Wafer fault detection</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="../static/css/style.css">
+  <meta charset="UTF-8">
+  <title>Wafer Fault Detection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #d4fc79, #96e6a1); /* light green gradient */
+      color: #333;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      width: 400px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .container h1 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2e7d32;
+    }
+
+    .dropzone {
+      border: 2px dashed #4caf50;
+      padding: 2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #f9fff9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .dropzone:hover {
+      background: #e8f5e9;
+      border-color: #2e7d32;
+    }
+
+    .dropzone img {
+      width: 60px;
+      opacity: 0.85;
+    }
+
+    .upload-input {
+      display: none;
+    }
+
+    .btn, .home-btn {
+      margin-top: 20px;
+      background: #4caf50;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: none; /* hidden until file selected */
+    }
+
+    .btn:hover, .home-btn:hover {
+      background: #2e7d32;
+    }
+
+    .success-message {
+      margin-top: 15px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2e7d32;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<form action="/predict" method="post" enctype="multipart/form-data">
-<h1 class="title">Upload CSV for the prediction</h1>
-<div class="frame">
-<div class="center">
-<div class="title">
-<h1>Drop file to upload</h1>
-</div>
-<div class="dropzone">
-<img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon">
-<input type="file" class="upload-input" name="file" accept=".csv">
-</div>
-<button type="submit" class="btn" name="uploadbutton">Upload file</button>
-</div>
-</div>
-</form>
-<!-- original pen: https://codepen.io/roydigerhund/pen/ZQdbeN -->
-<!-- NO JS ADDED YET -->
-<!-- partial -->
-<script src="https://100dayscss.com/codepen/js/jquery.min.js"></script>
-<script src="./script.js"></script>
+  <div class="container">
+    <h1>Upload CSV for Prediction</h1>
+    
+    <form id="uploadForm" action="/predict" method="post" enctype="multipart/form-data">
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload Icon">
+        <p>Drag & Drop your file here<br>or click to select</p>
+        <input type="file" id="fileInput" class="upload-input" name="file" accept=".csv">
+      </label>
+      
+      <p class="success-message" id="successMsg">✅ File processed successfully. Click below to download result.</p>
+      <button type="submit" class="btn" id="downloadBtn">Download Result File</button>
+      <button type="button" class="home-btn" id="homeBtn" onclick="goHome()">Go to Home</button>
+    </form>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const successMsg = document.getElementById("successMsg");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const homeBtn = document.getElementById("homeBtn");
+
+    fileInput.addEventListener("change", () => {
+      if(fileInput.files.length > 0){
+        successMsg.style.display = "block";
+        downloadBtn.style.display = "inline-block";
+        homeBtn.style.display = "inline-block"; // show home after file processed
+      }
+    });
+
+    function goHome(){
+      window.location.href = "/";
+    }
+  </script>
 </body>
 </html>

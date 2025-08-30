@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Completed</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #e0f7fa, #e8f5e9);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .checkmark {
+            font-size: 100px;
+            color: #28a745;
+            animation: pop 0.6s ease;
+        }
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .btn {
+            padding: 14px 32px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #007bff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        footer {
+            margin-top: 80px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark">✅</div>
+        <h1>Model Training Completed 🎉</h1>
+        <p>Your model has been successfully trained and is ready for predictions.</p>
+        <a href="/predict" class="btn">Predict on Your Data</a>
+    </div>
+    <footer>
+        Made with ❤️ for Sensor Fault Detection
+    </footer>
+</body>
+</html>

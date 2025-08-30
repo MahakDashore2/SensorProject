@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Fault Detection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+        }
+        h1 {
+            color: #222;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background: #28a745;
+            border-radius: 50px;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background: #218838;
+        }
+        .loader {
+            margin: 30px auto;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #28a745;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #loading {
+            display: none;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Sensor Fault Project 🚀</h1>
+    <p id="info-text">Click below to train the model:</p>
+
+    <!-- Train button -->
+    <a href="/train" class="btn" id="train-btn" onclick="showLoader()">Train Model</a>
+
+    <!-- Loader + Text -->
+    <div id="loading">
+        <div class="loader"></div>
+        <p style="color:#28a745; font-size:1.3em; font-weight:bold;">Training in Progress...</p>
+    </div>
+
+    <script>
+        function showLoader() {
+            document.getElementById("info-text").style.display = "none"; // hide the "Click below..." text
+            document.getElementById("train-btn").style.display = "none"; // hide button
+            document.getElementById("loading").style.display = "block"; // show loader
+        }
+    </script>
+</body>
+</html>
