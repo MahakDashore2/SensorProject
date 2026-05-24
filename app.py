@@ -16,8 +16,6 @@ def home():
     return render_template("index.html")
 
 
-
-
 @app.route("/train")
 def train_route():
     try:
