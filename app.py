@@ -10,7 +10,6 @@ from src.pipeline.predict_pipeline import PredictionPipeline
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def home():
     # return "Welcome to my application"
